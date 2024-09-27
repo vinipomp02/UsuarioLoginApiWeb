@@ -55,10 +55,9 @@ O projeto utiliza Bootstrap para garantir que as páginas sejam responsivas e ot
 ## Como Executar o Projeto
 
 1. Clone o repositório via Prompt de comando:
-   git clone https://github.com/vinipomp02/UsuarioLoginApiWeb.git no repositorio de preferencia
-    para acessar o diretorio que deseja clonar deve usar o comando cd pasta/onde/deseja/clonar
-
-1. 1. o Git deve ser instalado para que possa ser usado os comandos git
+git clone https://github.com/vinipomp02/UsuarioLoginApiWeb.git no repositorio de preferencia
+para acessar o diretorio que deseja clonar deve usar o comando cd pasta/onde/deseja/clonar
+o Git deve ser instalado para que possa ser usado os comandos git
 Link de Download do git: https://git-scm.com/downloads
 
 2. Navegue até a pasta do projeto executavel: 
