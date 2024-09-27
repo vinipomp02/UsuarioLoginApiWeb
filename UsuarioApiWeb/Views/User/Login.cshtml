@@ -91,25 +91,5 @@
                 }, 5000);
             }
         });
-
-function handleUserLogin() {
-    $.ajax({
-        url: '/api/user/login', 
-        type: 'POST',
-        data: {
-            username: $("#emailInput").val(),
-            password: $("#passwordInput").val()
-        },
-        success: function(response) {
-            toastr.success("Login realizado com sucesso!");
-            setTimeout(function() {
-                window.location.href = "/home/success";
-            }, 2000);
-        },
-        error: function(xhr) {
-            let errorMessage = xhr.responseJSON?.message || "Ocorreu um erro.";
-            toastr.error(errorMessage);
-        }
-    });
 }
 </script>

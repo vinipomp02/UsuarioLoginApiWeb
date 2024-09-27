@@ -82,9 +82,9 @@ async function registerUser(email, password, confirmPassword) {
         }
      };
 
-function showErrorToast(message) {
-        toastr.error(message);
-};
+    function showErrorToast(message) {
+            toastr.error(message);
+    };
 
     function handleRegister(event) {
         event.preventDefault();
@@ -93,7 +93,7 @@ function showErrorToast(message) {
         const password = document.querySelector('input[name="Password"]').value;
         const confirmPassword = document.querySelector('input[name="ConfirmPassword"]').value;
         registerUser(email, password, confirmPassword);
-};
+    };
 
 </script>
 

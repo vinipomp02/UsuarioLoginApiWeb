@@ -15,6 +15,7 @@ namespace UsuarioApiWeb.Services
             _userManager = userManager;
             _tokenValidationParameters = tokenValidationParameters;
         }
+
         /// <summary>
         /// Gera o Token JWT
         /// </summary>
@@ -51,17 +52,16 @@ namespace UsuarioApiWeb.Services
 
             try
             {
-                // Usa os parâmetros de validação injetados
                 tokenHandler.ValidateToken(token, _tokenValidationParameters, out _);
-                return true; // O token é válido
+                return true; 
             }
             catch (SecurityTokenExpiredException)
             {
-                return false; // O token expirou
+                return false;
             }
             catch (Exception)
             {
-                return false; // Qualquer outro erro de validação
+                return false;
             }
         }
     }

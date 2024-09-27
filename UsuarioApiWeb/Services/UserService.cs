@@ -118,6 +118,7 @@ namespace UsuarioApiWeb.Services
                 Token = token
             };
         }
+
         /// <summary>
         /// Classe de Resultado de cadastro
         /// </summary>
@@ -128,6 +129,7 @@ namespace UsuarioApiWeb.Services
             public string Message { get; set; }
             public List<string> Errors { get; set; }
         }
+
         /// <summary>
         /// Classe de Resultado de login
         /// </summary>
