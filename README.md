@@ -1,6 +1,6 @@
 # Projeto de Autenticação e Registro de Usuários com ASP.NET Core
 
-Este projeto é uma aplicação ASP.NET Core que implementa um sistema de registro e login de usuários utilizando **ASP.NET Identity** e **JWT (JSON Web Tokens)** para autenticação. A aplicação segue princípios de arquitetura limpa, separando a lógica de negócio em serviços (`UserService` e `TokenService`), e é projetada com um design **mobile-first** na interface.
+Este projeto é uma aplicação ASP.NET Core que implementa um sistema de registro e login de usuários utilizando **ASP.NET Identity** e **JWT (JSON Web Tokens)** para autenticação. A aplicação segue princípios de clean code, separando a lógica de negócio em serviços (`UserService` e `TokenService`), e é projetada com um design **mobile-first** na interface.
 
 ## Funcionalidades
 
@@ -11,7 +11,7 @@ Este projeto é uma aplicação ASP.NET Core que implementa um sistema de regist
 
 ## Tecnologias Utilizadas
 
-- **ASP.NET Core 6 MVC**: Framework para construir aplicações web modernas.
+- **ASP.NET Core 6 MVC**: Framework de desenvolvimento web.
 - **ASP.NET Identity**: Sistema de autenticação e gerenciamento de usuários.
 - **JWT**: Para autenticação segura via token.
 - **InMemoryStore**: Armazenamento temporário de dados durante o desenvolvimento (sem uso de banco de dados persistente).
@@ -55,32 +55,48 @@ O projeto utiliza Bootstrap para garantir que as páginas sejam responsivas e ot
 ## Como Executar o Projeto
 
 1. Clone o repositório via Prompt de comando:
-git clone https://github.com/vinipomp02/UsuarioLoginApiWeb.git no repositorio de preferencia
-para acessar o diretorio que deseja clonar deve usar o comando cd pasta/onde/deseja/clonar
-o Git deve ser instalado para que possa ser usado os comandos git
-Link de Download do git: https://git-scm.com/downloads
+   ```bash
+   git clone https://github.com/vinipomp02/UsuarioLoginApiWeb.git no repositório de preferência
+   ```
+   Para acessar o diretório que deseja clonar, deve usar o comando:
+   ```bash
+   cd pasta/onde/deseja/clonar
+   ```
+   (O Git deve ser instalado para que possa ser usado os comandos git.  
+   Link de Download do Git: [https://git-scm.com/downloads](https://git-scm.com/downloads))
 
-2. Navegue até a pasta do projeto executavel: 
-cd pasta/onde/deseja/clonar/UsuarioApiWeb/UsuarioApiWeb
+2. Navegue até a pasta do projeto executável:
+   ```bash
+   cd pasta/onde/deseja/clonar/UsuarioApiWeb/UsuarioApiWeb
+   ```
 
 3. Restaure os pacotes:
-digite no CMD dotnet restore
+   Digite no CMD:
+   ```bash
+   dotnet restore
+   ```
 
 4. Execute a aplicação:
-digite no CMD dotnet run
+   Digite no CMD:
+   ```bash
+   dotnet run
+   ```
 
-5. Abra o localhost no seu navegador
-https://localhost:7140 ou http://localhost:5140
+5. Abra o localhost no seu navegador:
+   - [https://localhost:7140](https://localhost:7140) ou
+   - [http://localhost:5140](http://localhost:5140)
 
-6. (Opcional) Via Menu ou Botão de "Ainda não tem um cadastro?" acesse a tela de cadastro
-Crie um novo usuário
+6. (Opcional) Via Menu ou Botão de "Ainda não tem um cadastro?", acesse a tela de cadastro e crie um novo usuário.
 
-7. Acesse a Tela de Login via
-Utilize um dos usúarios pré existentes, carregados ao iniciar o projeto ou um úsuario recém-criado via tela de cadastro
+7. Acesse a Tela de Login via:
+   Utilize um dos usuários pré-existentes, carregados ao iniciar o projeto, ou um usuário recém-criado via tela de cadastro.
 
-8. Faça o Logout
+8. Faça o Logout.
 
-9. Para encerrar a aplicação volte ao Cmd e Insira o comando Ctrl + C
+9. Para encerrar a aplicação, volte ao CMD e insira o comando:
+   ```bash
+   Ctrl + C
+   ```
 
 ### Melhoria Futuras Possíveis
 - **Integração com banco de dados.**
@@ -88,9 +104,12 @@ Utilize um dos usúarios pré existentes, carregados ao iniciar o projeto ou um 
 - **Auditoria de acessos e gerenciamento avançado de usuários.**
 
 
-### Considerações finais sobre o projeto
-1. Decide seguir no modelo ASP.NET CORE MVC por ter mais conforto
-2. Não fiz integração via banco de dados, por se tratar de uma aplicação simples e para facilitar no momento de executar o projeto em outras máquinas
-3. Utilzei Bootstrap para manter o código mais clean e de facil manutenção
-4. Criei uma feature a mais para cadastro de dados, para facilitar o uso e ter mais opções de testes caso seja necessário
+### Considerações Finais sobre o Projeto
 
+A principal premissa deste desafio foi o tempo disponível para desenvolvimento. Dentre as opções de modelos que considerei, optei por seguir com ASP.NET CORE MVC devido ao meu maior domínio nessa tecnologia e arqitetura.
+
+Por se tratar de uma aplicação simples e visando garantir a fácil execução do projeto em qualquer computador, decidi não implementar uma integração com banco de dados nesta primeira versão.
+
+Outra premissa importante durante meu desenvolvimento foi a manutenção de um código limpo. Para isso, utilizei o Bootstrap, que acredito que facilite a manutenção e o design da aplicação.
+
+Identifiquei uma oportunidade de melhoria nas funcionalidades e incluí a criação de cadastro de novos usuários. Isso tornará a realização de diversos testes mais interessantes e dinâmicos.
