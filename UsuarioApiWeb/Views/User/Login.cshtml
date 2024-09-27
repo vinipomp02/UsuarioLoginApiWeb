@@ -82,14 +82,13 @@
     }
 
      document.addEventListener('DOMContentLoaded', function () {
-            const successMessage = document.getElementById('successMessage');
-            if (successMessage) {
-                setTimeout(() => {
-                    $(successMessage).fadeOut(500, function() {
-                        $(this).remove(); 
-                    });
-                }, 5000);
-            }
-        });
-}
+        const successMessage = document.getElementById('successMessage');
+        if (successMessage) {
+            setTimeout(() => {
+                $(successMessage).fadeOut(500, function() {
+                    $(this).remove(); 
+                });
+            }, 5000);
+        }
+    });
 </script>
