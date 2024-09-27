@@ -1,0 +1,115 @@
+﻿@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="container mt-5">
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                toastr.success('@TempData["SuccessMessage"]');
+            });
+        </script>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                toastr.error('@TempData["ErrorMessage"]');
+            });
+        </script>
+    }
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4">
+            <h2 class="text-center">Login de Usuário</h2>
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" id="emailInput" class="form-control" required placeholder="Digite o e-mail"/>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" type="password" id="passwordInput" class="form-control" required placeholder="Digite a senha"/>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+            </form>
+            <div class="text-center mt-3">
+                <p>Ainda não tem um cadastro? <a href="/user/cadastro" class="link-primary">Cadastre-se aqui</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    async function handleLogin(event) {
+        event.preventDefault();
+
+        const email = document.querySelector('input[name="Email"]').value;
+        const password = document.querySelector('input[name="Password"]').value;
+
+        try {
+            const response = await fetch('/user/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ Email: email, Password: password })
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                showErrorToast("Erro: " + errorText);
+                return;
+            }
+
+            toastr.success("Login realizado com sucesso!");
+            setTimeout(function() {
+                window.location.href = '/user/sucess';
+            }, 2000);
+
+        } catch (error) {
+            showErrorToast("Houve um erro ao tentar fazer login. Tente novamente mais tarde.");
+        }
+    }
+
+    function showErrorToast(message) {
+        toastr.error(message);
+    }
+
+     document.addEventListener('DOMContentLoaded', function () {
+            const successMessage = document.getElementById('successMessage');
+            if (successMessage) {
+                setTimeout(() => {
+                    $(successMessage).fadeOut(500, function() {
+                        $(this).remove(); 
+                    });
+                }, 5000);
+            }
+        });
+
+function handleUserLogin() {
+    $.ajax({
+        url: '/api/user/login', 
+        type: 'POST',
+        data: {
+            username: $("#emailInput").val(),
+            password: $("#passwordInput").val()
+        },
+        success: function(response) {
+            toastr.success("Login realizado com sucesso!");
+            setTimeout(function() {
+                window.location.href = "/home/success";
+            }, 2000);
+        },
+        error: function(xhr) {
+            let errorMessage = xhr.responseJSON?.message || "Ocorreu um erro.";
+            toastr.error(errorMessage);
+        }
+    });
+}
+</script>
